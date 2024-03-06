@@ -1,18 +1,24 @@
 from flask import Flask, jsonify ,request
 from flask_cors import CORS,cross_origin
+
 app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 books=[
-    {"id":1,"title":"Book 1","author":"Author 1"},
+    {"id":1,"title":"Helle","author":"Author 1"},
     {"id":2,"title":"Book 2","author":"Author 2"},
-    {"id":3,"title":"Book 3","author":"Author 3"}
+    {"id":3,"title":"Book 3","author":"Author 3"},
+    {"id":4,"title":"Book 4","author":"Author 4"},
+    {"id":5,"title":"Book 5","author":"Author 5"},
+    {"id":6,"title":"Book 6","author":"Author 6"},
 ]
+
 @app.route("/")
 @cross_origin()
 def hello_world():
-    return  "<h1>Hello_world</h1>"
+    # return  "<h1>Welcome Management System</h1>"
+     return {"TEST": ["1", "2", "3"]}
 
 @app.route("/books",methods=["GET"])
 @cross_origin()
@@ -47,4 +53,4 @@ def delete_id_book(data_book):
     return jsonify({"error": "Book not found"}), 404
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True, encoding='utf-8')
+    app.run(host="0.0.0.0", port=5000, debug=True)
