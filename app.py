@@ -17,8 +17,8 @@ books=[
 @app.route("/")
 @cross_origin()
 def hello_world():
-    # return  "<h1>Welcome Management System</h1>"
-     return {"TEST": ["1", "2", "3"]}
+    return  "<h1>Welcome Management System</h1>"
+    #  return {"TEST": ["1", "2", "3"]}
 
 @app.route("/books",methods=["GET"])
 @cross_origin()
