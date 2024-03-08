@@ -29,6 +29,7 @@ def get_all_books():
 @cross_origin()
 def insert_id_book():
     new_book = request.get_json()
+    new_book['id'] = int(new_book['id'])
     books.append(new_book)
     return jsonify({"books": books})
 
